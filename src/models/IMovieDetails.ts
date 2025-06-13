@@ -29,8 +29,8 @@ export interface IMovieDetails {
 export interface Belongs_to_collection {
 	id: number;
 	name: string;
-	poster_path?: any;
-	backdrop_path?: any;
+	poster_path?: string;
+	backdrop_path?: string;
 }
 export interface Genres {
 	id: number;
