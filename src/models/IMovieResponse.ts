@@ -1,8 +1,8 @@
-import type {IMovie} from "./IMovie.ts";
+import type {IMovieListCard} from "./IMovieListCard.ts";
 
 export interface IMovieResponse {
 	page: number;
-	results: IMovie[];
+	results: IMovieListCard[];
 	total_pages: number;
 	total_results: number;
 }

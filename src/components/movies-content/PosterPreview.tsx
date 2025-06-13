@@ -1,13 +1,15 @@
 import React, {FC} from 'react';
-import type {IMovie} from "../../models/IMovie.ts";
+import type {IMovieListCard} from "../../models/IMovieListCard.ts";
 import {basePosterUrl} from "../../consts/urls.ts";
+import type {IMovieDetails} from "../../models/IMovieDetails.ts";
 
 type PosterPropType = {
-    movie: IMovie
+    movie: IMovieListCard | IMovieDetails
+    posterSize: string
 }
-const PosterPreview:FC<PosterPropType> = ({movie}) => {
+const PosterPreview:FC<PosterPropType> = ({movie, posterSize}) => {
 
-    const fullPosterPath = basePosterUrl + movie.poster_path
+    const fullPosterPath = basePosterUrl+ posterSize + movie.poster_path
     return (
         <div>
             <img src={fullPosterPath} alt={movie.title}/>

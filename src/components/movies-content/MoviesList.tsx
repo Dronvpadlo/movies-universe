@@ -1,21 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import type {IMovie} from "../../models/IMovie.ts";
+import type {IMovieListCard} from "../../models/IMovieListCard.ts";
 import {getMovies} from "../../services/MoviesService.ts";
 import MoviesListCard from "./MoviesListCard.tsx";
+import {useSearchParams} from "react-router-dom";
+import PaginationComponent from "../PaginationComponent.tsx";
 
 const MoviesList = () => {
 
-    const [movies, setMovies] = useState<IMovie[]>([])
-    useEffect(() => {
-        getMovies()
-            .then(value => setMovies(value))
+    const [movies, setMovies] = useState<IMovieListCard[]>([])
+    const [query] = useSearchParams({page: '1'});
 
-    }, []);
+
+    useEffect(() => {
+        const page = query.get('page')
+        getMovies(+page)
+            .then(value => setMovies(value))
+    }, [query]);
 
     return (
         <div>
-            <h4>Movies List</h4>
             {movies.map((movie, index) => <MoviesListCard key={index} movie={movie}/>)}
+            <PaginationComponent/>
         </div>
     );
 };
