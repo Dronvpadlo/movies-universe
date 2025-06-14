@@ -1,12 +1,12 @@
 import React from 'react';
-import MoviesList from "../components/movies-content/MoviesList.tsx";
+import MoviesListComponent from "../components/movies-content/movies-components/MoviesListComponent.tsx";
 
 const MoviesPage = () => {
 
 
     return (
         <div>
-            <MoviesList/>
+            <MoviesListComponent/>
         </div>
     );
 };

@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
-import type {IMovieListCard} from "../../models/IMovieListCard.ts";
-import PosterPreview from "./PosterPreview.tsx";
+import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
+import PosterPreview from "../PosterPreview.tsx";
 import {useNavigate} from "react-router-dom";
 
 type MoviePropType = {
     movie: IMovieListCard
 }
-const MoviesListCard:FC<MoviePropType> = ({movie}) => {
+const MoviesListCardComponent:FC<MoviePropType> = ({movie}) => {
 
     const navigate = useNavigate();
     const goToMovie = () => {
@@ -33,4 +33,4 @@ const MoviesListCard:FC<MoviePropType> = ({movie}) => {
     );
 };
 
-export default MoviesListCard;
+export default MoviesListCardComponent;

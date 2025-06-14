@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import type {IMovieListCard} from "../../models/IMovieListCard.ts";
-import {getMovies} from "../../services/MoviesService.ts";
-import MoviesListCard from "./MoviesListCard.tsx";
+import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
+import {getMovies} from "../../../services/MoviesService.ts";
+import MoviesListCardComponent from "./MoviesListCardComponent.tsx";
 import {useSearchParams} from "react-router-dom";
-import PaginationComponent from "../PaginationComponent.tsx";
+import PaginationComponent from "../../PaginationComponent.tsx";
 
-const MoviesList = () => {
+const MoviesListComponent = () => {
 
     const [movies, setMovies] = useState<IMovieListCard[]>([])
     const [query] = useSearchParams({page: '1'});
@@ -19,10 +19,10 @@ const MoviesList = () => {
 
     return (
         <div>
-            {movies.map((movie, index) => <MoviesListCard key={index} movie={movie}/>)}
+            {movies.map((movie, index) => <MoviesListCardComponent key={index} movie={movie}/>)}
             <PaginationComponent/>
         </div>
     );
 };
 
-export default MoviesList;
+export default MoviesListComponent;
