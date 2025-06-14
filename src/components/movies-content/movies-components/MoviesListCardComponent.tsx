@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
 import PosterPreview from "../PosterPreview.tsx";
 import {useNavigate} from "react-router-dom";
+import StarsRatingComponent from "../../StarsRatingComponent.tsx";
 
 type MoviePropType = {
     movie: IMovieListCard
@@ -23,7 +24,7 @@ const MoviesListCardComponent:FC<MoviePropType> = ({movie}) => {
             <div>Overview: {movie?.overview}</div>
             <div>Popularity: {movie?.popularity}</div>
             <div>Release Date: {movie?.release_date}</div>
-            <div>Rating: {movie?.vote_average}</div>
+            <div>Rating: <StarsRatingComponent rating={movie.vote_average}/></div>
             <div>Votes: {movie?.vote_count}</div>
             <div>Adult: {movie?.adult === true && <span>18+ 🔞</span>}
                 {movie?.adult === false && <span>All Ages</span>}

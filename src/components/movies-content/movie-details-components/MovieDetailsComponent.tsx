@@ -3,8 +3,10 @@ import type {IMovieDetails} from "../../../models/IMovieDetails.ts";
 import {useParams} from "react-router-dom";
 import {GetMovieById} from "../../../services/MoviesService.ts";
 import PosterPreview from "../PosterPreview.tsx";
-import ProductionCompanyComponent from "../movie-details-components/ProductionCompanyComponent.tsx";
-import ProductionCountriesComponent from "../movie-details-components/ProductionCountriesComponent.tsx";
+import ProductionCompanyComponent from "./ProductionCompanyComponent.tsx";
+import ProductionCountriesComponent from "./ProductionCountriesComponent.tsx";
+import StarsRatingComponent from "../../StarsRatingComponent.tsx";
+import {Badge} from "reactstrap";
 
 const MovieDetailsComponent = () => {
     const [movie, setMovie] = useState<IMovieDetails | null>(null)
@@ -19,15 +21,24 @@ const MovieDetailsComponent = () => {
             {movie && <div><h4>{movie.title}</h4>
                 {movie && <PosterPreview movie={movie} posterSize={posterSize}/>}
                 <div>Budget: {movie.budget}$</div>
-                <div>Genres: {movie.genres.map((genre) => <div key={genre.id}>{genre.name}</div>)}</div>
+                <div>Genres: {movie.genres.map((genre, index) => <Badge key={index} name={genre}/>)}</div>
                 {movie.homepage && <a href={movie.homepage}>Homepage</a>}
                 <ul>Original Countries: {movie.origin_country.map((country, index) => <li key={index}>{country}</li>)}</ul>
                 <div>Original Language: {movie.original_language}</div>
                 <div>Original Title: {movie.original_title}</div>
+                <div>Languages:
+                    <ul>
+                        {movie.spoken_languages.map((language, index) => <li key={index}>{language.name}, {language.english_name}, {language.iso_639_1}</li>)}
+                    </ul>
+                </div>
                 <div>Overview: {movie.overview}</div>
                 <div>Popularity: {movie.popularity}</div>
                 <div>Release Date: {movie.release_date}</div>
-                <div>Rating: {movie.vote_average}</div>
+                <div>Revenue: {movie.revenue}</div>
+                <div>Runtime: {movie.runtime}</div>
+                <div>Status: {movie.status}</div>
+                <div>Tagline: {movie.tagline}</div>
+                <div>Rating: <StarsRatingComponent rating={movie.vote_average}/></div>
                 <div>Votes: {movie.vote_count}</div>
                 <div>Adult: {movie?.adult === true && <span>18+ 🔞</span>}
                     {movie?.adult === false && <span>All Ages</span>}

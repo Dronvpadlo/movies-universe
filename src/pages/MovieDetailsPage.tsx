@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieDetailsComponent from "../components/movies-content/movies-components/MovieDetailsComponent.tsx";
+import MovieDetailsComponent from "../components/movies-content/movie-details-components/MovieDetailsComponent.tsx";
 
 const MovieDetailsPage = () => {
 

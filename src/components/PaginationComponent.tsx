@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {useSearchParams} from "react-router-dom";
 
-// type MaxPageProp = {
-//     maxPage: number
-// }
-const PaginationComponent = () => {
+type MaxPageProp = {
+    maxPage: number
+}
+const PaginationComponent:FC<MaxPageProp> = ({maxPage}) => {
     const [query, setQuery] = useSearchParams({page: '1'});
 
     const handleSubmitPrev = () => {
@@ -17,7 +17,7 @@ const PaginationComponent = () => {
     }
     const handleSubmitNext = () => {
         let page = +query.get('page');
-        if(page){
+        if(page && page<maxPage){ //no more 500th page
             const newQuery = ++page
             const stringQuery = newQuery.toString()
             setQuery({page: stringQuery})
