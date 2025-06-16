@@ -12,8 +12,8 @@ const axiosInstance = axios.create({
     headers: {Authorization: 'Bearer ' + token}
 });
 
-export const getMovies = async (pg):Promise<IMovieResponse> => {
-    const {data} = await axiosInstance.get<IMovieResponse>('/discover/movie?page=' + pg)
+export const getMovies = async (page):Promise<IMovieResponse> => {
+    const {data} = await axiosInstance.get<IMovieResponse>('/discover/movie?page=' + page)
     return data;
 }
 export const GetMovieById = async (id):Promise<IMovieDetails> => {
@@ -27,7 +27,12 @@ export const getGenres = async ():Promise<IGenre[]> => {
     return data.genres;
 }
 
-export const searchMovie = async (movie: string):Promise<IMovieListCard[]> => {
-    const {data} = await axiosInstance.get<IMovieResponse>('/search/movie?query=' + movie)
-    return data.results
+export const searchMovie = async (movie: string, page: number):Promise<IMovieResponse> => {
+    const { data } = await axiosInstance.get('/search/movie?', {
+        params: {
+            query: movie,
+            page
+        }
+    });
+    return data
 }

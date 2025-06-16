@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import type {IMovieListCard} from "../models/IMovieListCard.ts";
-import {searchMovie} from "../services/MoviesService.ts";
+import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
+import {searchMovie} from "../../../services/MoviesService.ts";
 import {useNavigate} from "react-router-dom";
+import styles from './SearchComponent.module.css'
 
 const SearchComponent = () => {
     const [query, setQuery] = useState('')
@@ -36,8 +37,9 @@ const SearchComponent = () => {
                 placeholder={'search for a film'}
                 value={query}
                 onChange={handleChange}
+                className={styles.searchForm}
             />
-            <button type="submit">Search</button>
+            <button className={styles.button} type="submit">Search</button>
 
             </form>
         </div>

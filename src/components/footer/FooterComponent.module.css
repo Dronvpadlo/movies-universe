@@ -1,0 +1,8 @@
+.section{
+    height: 5vh;
+    background-color: #40beec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

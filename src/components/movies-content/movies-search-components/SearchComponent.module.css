@@ -1,0 +1,16 @@
+.searchForm{
+    width: 30vw;
+    border-radius: 25px;
+    height: 5vh;
+}
+
+.button{
+    border-radius: 25px;
+    background-color: #2b82d9;
+    color: white;
+    height: 5vh;
+}
+
+.button:hover{
+    background-color: #ea4a4a;
+}

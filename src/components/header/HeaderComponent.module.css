@@ -1,0 +1,51 @@
+.font{
+
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+}
+.links{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1vw;
+    width: 30vw;
+    padding-right: 2vw;
+}
+
+.link{
+    text-decoration: none;
+    color: #eef5fd;
+    font-size: 2vw;
+}
+
+.link:hover{
+    color: #ea4a4a;
+}
+
+.searchComponent{
+    display: flex;
+    justify-content: center;
+    background-color: #40beec;
+    padding-bottom: 2vh;
+}
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    background-color: #40beec;
+}
+
+.userIcon{
+    border-radius: 15px;
+    border: solid #ffffff;
+    height: 6vh;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    color: #eef5fd;
+}
+

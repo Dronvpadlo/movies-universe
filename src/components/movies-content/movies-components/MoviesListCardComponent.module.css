@@ -1,0 +1,26 @@
+.block{
+    width: 18vw;
+    border: solid #ec9898 1px;
+    height: 90vh;
+    margin-bottom: 3vh;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.block:hover{
+    background-color: #fccaca;
+}
+
+.img{
+    height: 55vh;
+    width: 18vw;
+    display: flex;
+    justify-content: center;
+
+}

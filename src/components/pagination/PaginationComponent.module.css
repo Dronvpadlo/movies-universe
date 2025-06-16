@@ -1,0 +1,33 @@
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #40beec;
+}
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    width: 35vw;
+}
+
+.button{
+    border-radius: 6px;
+    background-color: #2b82d9;
+    color: white;
+    height: 5vh;
+    width: 3vw;
+}
+.disablesButton{
+    border-radius: 6px;
+    background-color: #eef5fd;
+    color: #000000;
+    height: 5vh;
+    width: 3vw;
+}
+
+
+.button:hover{
+    background-color: #ea4a4a;
+}

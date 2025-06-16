@@ -1,8 +1,10 @@
 import React, {FC} from 'react';
 import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
-import PosterPreview from "../PosterPreview.tsx";
+import PosterPreview from "../poster-components/PosterPreview.tsx";
 import {useNavigate} from "react-router-dom";
-import StarsRatingComponent from "../../StarsRatingComponent.tsx";
+import StarsRatingComponent from "../StarsRatingComponent.tsx";
+import styles from './MoviesListCardComponent.module.css'
+import MovieInfoComponent from "./MovieInfoComponent.tsx";
 
 type MoviePropType = {
     movie: IMovieListCard
@@ -14,22 +16,12 @@ const MoviesListCardComponent:FC<MoviePropType> = ({movie}) => {
         navigate(`/movies/details/${movie.id}`)
     }
 
-    const posterSize: string = '/w200';
+    const posterSize: string = '/w300';
     return (
-        <div onClick={goToMovie}>
+        <div onClick={goToMovie} className={styles.block}>
+            <div className={styles.img}>{movie && <PosterPreview movie={movie} posterSize={posterSize}/>}</div>
             <h4>{movie?.title}</h4>
-            {movie && <PosterPreview movie={movie} posterSize={posterSize}/>}
-            <div>Original Language: {movie?.original_language}</div>
-            <div>Original Title: {movie?.original_title}</div>
-            <div>Overview: {movie?.overview}</div>
-            <div>Popularity: {movie?.popularity}</div>
-            <div>Release Date: {movie?.release_date}</div>
-            <div>Rating: <StarsRatingComponent rating={movie.vote_average}/></div>
-            <div>Votes: {movie?.vote_count}</div>
-            <div>Adult: {movie?.adult === true && <span>18+ 🔞</span>}
-                {movie?.adult === false && <span>All Ages</span>}
-            </div>
-            <hr/>
+            <MovieInfoComponent movie={movie}/>
         </div>
     );
 };

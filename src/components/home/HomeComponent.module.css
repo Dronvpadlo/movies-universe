@@ -1,0 +1,22 @@
+.section{
+    background-color: #40beec;
+    height: 79vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link{
+    text-decoration: none;
+    color: #eef5fd;
+    font-size: 3vh;
+}
+
+.link:hover{
+    color: #ea4a4a;
+}
+
+.h1{
+    color: #eef5fd;
+}
