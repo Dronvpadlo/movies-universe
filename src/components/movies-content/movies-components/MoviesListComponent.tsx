@@ -23,7 +23,7 @@ const MoviesListComponent = () => {
     }, [query]);
 
     return (
-        <div>
+        <div className={styles.marginTop}>
             <div className={styles.target}>
             {movies.map((movie, index) => <MoviesListCardComponent key={index} movie={movie}/>)}
             </div>

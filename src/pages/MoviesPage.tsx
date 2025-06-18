@@ -1,6 +1,7 @@
 import React from 'react';
 import MoviesListComponent from "../components/movies-content/movies-components/MoviesListComponent.tsx";
 
+
 const MoviesPage = () => {
 
 

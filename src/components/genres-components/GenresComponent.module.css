@@ -1,0 +1,5 @@
+.target{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #40beec;
+}

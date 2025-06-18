@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 1vw;
-    width: 30vw;
+    width: 20vw;
     padding-right: 2vw;
 }
 
@@ -29,9 +29,12 @@
     justify-content: center;
     background-color: #40beec;
     padding-bottom: 2vh;
+    padding-top: 2vh;
 }
 
-.section{
+
+
+.block{
     display: flex;
     justify-content: space-between;
     background-color: #40beec;

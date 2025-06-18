@@ -27,6 +27,11 @@ export const getGenres = async ():Promise<IGenre[]> => {
     return data.genres;
 }
 
+export const getMoviesByGenreId = async (id):Promise<IMovieResponse> => {
+    const {data} = await axiosInstance.get('/discover/movie?with_genres=' + id);
+    return data;
+}
+
 export const searchMovie = async (movie: string, page: number):Promise<IMovieResponse> => {
     const { data } = await axiosInstance.get('/search/movie?', {
         params: {

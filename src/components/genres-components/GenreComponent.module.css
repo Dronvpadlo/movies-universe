@@ -1,0 +1,8 @@
+.block{
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.block:hover{
+    background-color: #fccaca;
+}

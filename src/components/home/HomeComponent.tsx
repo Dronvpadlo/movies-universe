@@ -5,7 +5,7 @@ import styles from './HomeComponent.module.css'
 const HomeComponent = () => {
     return (
         <div className={styles.section}>
-            <h1 className={styles.h1}>Welcome to movies Universe</h1>
+            <h1 className={styles.h1}>Welcome to Movies Universe</h1>
             <Link to={'/movies'} className={styles.link}>Let`s watch something</Link>
         </div>
     );
