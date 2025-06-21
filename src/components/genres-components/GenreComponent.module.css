@@ -1,8 +1,16 @@
 .block{
-    background-color: #fff;
+    background-color: var(--card-bg);
+    color: var(--text-color);
     border-radius: 5px;
+    padding: 2px;
 }
 
 .block:hover{
-    background-color: #fccaca;
+    background-color: #fa6969;
+}
+
+.active {
+    background-color: var(--accent-color, #fa6969);
+    color: white;
+    font-weight: bold;
 }

@@ -1,8 +1,8 @@
 .section{
     height: 5vh;
-    background-color: #40beec;
+    background-color: var(--card-bg);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
 }

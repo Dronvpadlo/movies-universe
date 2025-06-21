@@ -3,8 +3,10 @@
     border: solid #ec9898 1px;
     height: 90vh;
     margin-bottom: 3vh;
+    padding-left: 3px;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
 .flex{
@@ -15,6 +17,7 @@
 
 .block:hover{
     background-color: #fccaca;
+    color: black;
 }
 
 .img{

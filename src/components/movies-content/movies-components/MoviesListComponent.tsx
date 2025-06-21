@@ -5,25 +5,30 @@ import MoviesListCardComponent from "./MoviesListCardComponent.tsx";
 import {useSearchParams} from "react-router-dom";
 import PaginationComponent from "../../pagination/PaginationComponent.tsx";
 import styles from './MoviesListComponent.module.css'
+import {moviesSlice, moviesSliceAction, useAppSelector} from "../../../redux/store.ts";
+import {useDispatch} from "react-redux";
+
 
 const MoviesListComponent = () => {
 
-    const [movies, setMovies] = useState<IMovieListCard[] | []>([])
     const [maxPage, setMaxPage] = useState<number>(null)
     const [query] = useSearchParams({page: '1'});
+    const {movies} = useAppSelector(({moviesSlice}) => moviesSlice);
+    const dispatch = useDispatch();
+    console.log(movies)
 
 
     useEffect(() => {
         const page = query.get('page')
         getMovies(+page)
             .then(value => {
-                setMovies(value.results)
+                dispatch(moviesSliceAction.loadMovies(value.results))
                 setMaxPage(value.total_pages)
             })
     }, [query]);
 
     return (
-        <div className={styles.marginTop}>
+        <div>
             <div className={styles.target}>
             {movies.map((movie, index) => <MoviesListCardComponent key={index} movie={movie}/>)}
             </div>

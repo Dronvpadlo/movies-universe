@@ -4,6 +4,7 @@ import {useSearchParams} from "react-router-dom";
 import MoviesListCardComponent from "../movies-components/MoviesListCardComponent.tsx";
 import PaginationComponent from "../../pagination/PaginationComponent.tsx";
 import styles from './MoviesSearchComponent.module.css'
+import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
 
 const MoviesSearchComponent = () => {
 
@@ -11,7 +12,7 @@ const MoviesSearchComponent = () => {
     const query = params.get('query') || '';
     const page = +params.get('page') || 1;
 
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState<IMovieListCard[]>([]);
     const [totalPages, setTotalPages] = useState(1)
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const MoviesSearchComponent = () => {
         }
     }, [query, page]);
     return (
-        <div>
+        <div className={styles.section}>
             <h2>Search results for: "{query}"</h2>
 
             {movies.length > 0 ? (

@@ -1,5 +1,6 @@
 .section{
-    background-color: #40beec;
+    background-color: var(--card-bg);
+    color: var(--text-color);
     height: 79vh;
     display: flex;
     justify-content: center;
@@ -9,7 +10,7 @@
 
 .link{
     text-decoration: none;
-    color: #eef5fd;
+    color: var(--text-color);
     font-size: 3vh;
 }
 
@@ -18,5 +19,6 @@
 }
 
 .h1{
-    color: #eef5fd;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }

@@ -8,3 +8,8 @@
     display: flex;
     justify-content: center;
 }
+
+.section{
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}

@@ -1,5 +1,6 @@
 .target{
     display: flex;
     justify-content: space-evenly;
-    background-color: #40beec;
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }

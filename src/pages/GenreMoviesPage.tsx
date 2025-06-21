@@ -1,5 +1,5 @@
 import React from 'react';
-import GenreMoviesComponent from "../components/genre-movies-components/GenreMoviesComponent.tsx";
+import GenreMoviesComponent from "../components/movies-content/genre-movies-components/GenreMoviesComponent.tsx";
 
 const GenreMoviesPage = () => {
     return (

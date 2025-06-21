@@ -16,7 +16,9 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.1",
     "react-star-ratings": "^2.3.0",
-    "reactstrap": "^9.2.3"
+    "reactstrap": "^9.2.3",
+    "react-redux": "^9.2.0",
+    "@reduxjs/toolkit": "^2.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
