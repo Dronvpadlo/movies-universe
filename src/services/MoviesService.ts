@@ -2,7 +2,6 @@ import axios from "axios";
 import {baseUrl} from "../consts/urls.ts";
 import {token} from "../consts/token.ts";
 import type {IMovieResponse} from "../models/IMovieResponse.ts";
-import type {IMovieListCard} from "../models/IMovieListCard.ts";
 import type {IGenre} from "../models/IGenre.ts";
 import type {IGenreResponse} from "../models/IGenreResponse.ts";
 import type {IMovieDetails} from "../models/IMovieDetails.ts";
@@ -12,7 +11,7 @@ const axiosInstance = axios.create({
     headers: {Authorization: 'Bearer ' + token}
 });
 
-export const getMovies = async (page):Promise<IMovieResponse> => {
+export const getMovies = async (page: number):Promise<IMovieResponse> => {
     const {data} = await axiosInstance.get<IMovieResponse>('/discover/movie?page=' + page)
     return data;
 }

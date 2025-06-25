@@ -1,30 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
-import {getMovies} from "../../../services/MoviesService.ts";
+import {useEffect} from 'react';
 import MoviesListCardComponent from "./MoviesListCardComponent.tsx";
 import {useSearchParams} from "react-router-dom";
 import PaginationComponent from "../../pagination/PaginationComponent.tsx";
 import styles from './MoviesListComponent.module.css'
-import {moviesSlice, moviesSliceAction, useAppSelector} from "../../../redux/store.ts";
-import {useDispatch} from "react-redux";
+import {moviesSliceAction} from "../../../redux/slices/moviesSlice/moviesSlice.ts";
+import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
+import {useAppDispatch} from "../../../redux/hooks/UseAppDispatch.tsx";
 
 
 const MoviesListComponent = () => {
 
-    const [maxPage, setMaxPage] = useState<number>(null)
     const [query] = useSearchParams({page: '1'});
-    const {movies} = useAppSelector(({moviesSlice}) => moviesSlice);
-    const dispatch = useDispatch();
-    console.log(movies)
-
+    const {movies, maxPage} = useAppSelector(({moviesSlice}) => moviesSlice);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        const page = query.get('page')
-        getMovies(+page)
-            .then(value => {
-                dispatch(moviesSliceAction.loadMovies(value.results))
-                setMaxPage(value.total_pages)
-            })
+        const page = +query.get('page');
+        if (query) {
+            dispatch(moviesSliceAction.loadMovies(page));
+        }
     }, [query]);
 
     return (
