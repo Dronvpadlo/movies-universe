@@ -10,7 +10,7 @@ type MoviesSliceType = {
     maxPage: number
 }
 
-const initialState: MoviesSliceType = {movies: [], maxPage: 1}
+const initialState: MoviesSliceType = {movies: [], maxPage: 1};
 
 const loadMovies = createAsyncThunk('moviesSlice/loadMovies',
     async (page: number, thunkAPI) => {

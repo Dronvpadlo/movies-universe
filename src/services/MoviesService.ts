@@ -2,9 +2,9 @@ import axios from "axios";
 import {baseUrl} from "../consts/urls.ts";
 import {token} from "../consts/token.ts";
 import type {IMovieResponse} from "../models/IMovieResponse.ts";
-import type {IGenre} from "../models/IGenre.ts";
 import type {IGenreResponse} from "../models/IGenreResponse.ts";
 import type {IMovieDetails} from "../models/IMovieDetails.ts";
+import type {IGenre} from "../models/IGenre.ts";
 
 const axiosInstance = axios.create({
     baseURL: baseUrl,
@@ -15,7 +15,7 @@ export const getMovies = async (page: number):Promise<IMovieResponse> => {
     const {data} = await axiosInstance.get<IMovieResponse>('/discover/movie?page=' + page)
     return data;
 }
-export const GetMovieById = async (id):Promise<IMovieDetails> => {
+export const getMovieById = async (id: number):Promise<IMovieDetails> => {
     const response = await axiosInstance.get('/movie/' + id);
     return response.data
 

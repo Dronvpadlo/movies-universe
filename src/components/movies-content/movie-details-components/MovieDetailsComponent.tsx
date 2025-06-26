@@ -1,7 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import type {IMovieDetails} from "../../../models/IMovieDetails.ts";
+import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
-import {GetMovieById} from "../../../services/MoviesService.ts";
 import PosterPreview from "../poster-components/PosterPreview.tsx";
 import ProductionCompanyComponent from "./ProductionCompanyComponent.tsx";
 import ProductionCountriesComponent from "./ProductionCountriesComponent.tsx";
@@ -9,13 +7,19 @@ import StarsRatingComponent from "../StarsRatingComponent.tsx";
 import {Badge} from "reactstrap";
 import {basePosterUrl} from "../../../consts/urls.ts";
 import styles from './MovieDetailsComponent.module.css'
+import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
+import {useAppDispatch} from "../../../redux/hooks/UseAppDispatch.tsx";
+import {movieDetailsSliceAction} from "../../../redux/slices/movieDetailsSlice/movieDetailsSlice.ts";
 
 const MovieDetailsComponent = () => {
-    const [movie, setMovie] = useState<IMovieDetails | null>(null);
+    // const [movie, setMovie] = useState<IMovieDetails | null>(null);
+    const {movie} = useAppSelector(({movieDetailsSlice}) => movieDetailsSlice);
     const { id } = useParams();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        GetMovieById(id).then(value => setMovie(value));
+        const movieId: number = +id
+        dispatch(movieDetailsSliceAction.loadMovieDetails({id: movieId}))
     }, [id]);
 
     const posterSize: string = '/w500';

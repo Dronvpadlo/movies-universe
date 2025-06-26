@@ -20,7 +20,7 @@ const MoviesSearchComponent = () => {
         if (query) {
             dispatch(searchSliceAction.loadFoundMovies({query, page}))
         }
-    }, [query]);
+    }, [params]);
     return (
         <div className={styles.section}>
             <h2>Search results for: "{query}"</h2>

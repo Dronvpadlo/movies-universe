@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import type {IGenre} from "../../models/IGenre.ts";
-import {getGenres} from "../../services/MoviesService.ts";
+import React, {useEffect} from 'react';
 import GenreComponent from "./GenreComponent.tsx";
 import styles from './GenresComponent.module.css'
+import {useAppSelector} from "../../redux/hooks/UseAppSelector.ts";
+import {useAppDispatch} from "../../redux/hooks/UseAppDispatch.tsx";
+import {genresSliceAction} from "../../redux/slices/genresSlice/genresSlice.ts";
 
 const GenresComponent = () => {
 
-
-
-    const [genres, setGenres] = useState<IGenre[]>([])
+    const {genres} = useAppSelector(({genresSlice}) => genresSlice)
+    const dispatch = useAppDispatch();
     useEffect(() => {
-        getGenres()
-            .then(value => setGenres(value))
+        dispatch(genresSliceAction.loadGenres())
     }, []);
 
     return (
