@@ -33,6 +33,14 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    box-shadow: 1px 2px 4px rgba(8, 78, 248, 0.5);
+    transition: box-shadow 0.5s ease;
+}
+
+.darkThemeButton:hover {
+    background-color: #ea4a4a;
+    box-shadow: 1px 3px 6px rgba(248, 8, 152, 0.5);
+    transition: box-shadow 0.5s ease;
 }
 
 .link{

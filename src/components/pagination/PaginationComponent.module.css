@@ -14,11 +14,13 @@
 }
 
 .button{
-    border-radius: 6px;
+    border-radius: 10px;
     background-color: var(--card-bg);
     color: var(--text-color);
     height: 5vh;
     width: 3vw;
+    box-shadow: 1px 2px 4px rgba(8, 78, 248, 0.5);
+    transition: box-shadow 0.5s ease;
 }
 .disablesButton{
     border-radius: 6px;
@@ -31,4 +33,6 @@
 
 .button:hover{
     background-color: #ea4a4a;
+    box-shadow: 1px 3px 6px rgba(248, 8, 152, 0.5);
+    transition: box-shadow 0.5s ease;
 }

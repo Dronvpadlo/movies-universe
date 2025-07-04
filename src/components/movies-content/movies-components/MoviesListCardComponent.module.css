@@ -7,6 +7,8 @@
     border-radius: 5px;
     background-color: var(--card-bg);
     color: var(--text-color);
+    box-shadow: 1px 3px 6px rgba(8, 78, 248, 0.5);
+    transition: box-shadow 0.5s ease;
 }
 
 .flex{
@@ -18,12 +20,13 @@
 .block:hover{
     background-color: #fccaca;
     color: black;
+    box-shadow: 1px 3px 6px rgba(245, 94, 179, 0.5);
+    transition: box-shadow 0.5s ease;
 }
 
 .img{
+    margin-left: 0;
     height: 55vh;
     width: 18vw;
     display: flex;
-    justify-content: center;
-
 }

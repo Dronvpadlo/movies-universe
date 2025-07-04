@@ -9,11 +9,18 @@ type PosterPropType = {
     posterSize: string
 }
 const PosterPreview:FC<PosterPropType> = ({movie, posterSize}) => {
+    const placeholder = '/public/noPoster.jpg'
+    const posterWidth = posterSize === '/w500' ? 500 : 300
 
-    const fullPosterPath = basePosterUrl+ posterSize + movie.poster_path
+    let fullPosterPath = basePosterUrl + posterSize + movie.poster_path
+    if(movie.poster_path == null){
+        fullPosterPath = placeholder
+    }
     return (
         <div>
-            <img src={fullPosterPath} alt={movie.title} className={styles.image}/>
+            <img src={fullPosterPath} alt={movie.title} className={styles.image} style={{
+                width: `${posterWidth}px`,
+            }}/>
         </div>
     );
 };
