@@ -13,14 +13,13 @@ const HeaderComponent = () => {
     const {theme, changeTheme} = useContext(ThemeContext);
     const changeThemeHandler = () => {
         changeTheme(theme === 'light' ? 'dark' : 'light')
-        console.log(theme)
     };
 
     const {name} = useAppSelector(state => state.userSlice);
     const dispatch = useAppDispatch();
 
     const handleLogout = () => {
-        dispatch(userSliceAction.clearUser())
+        dispatch(userSliceAction.clearUser());
     }
 
     return (

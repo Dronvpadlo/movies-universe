@@ -17,7 +17,7 @@ const GenreMoviesComponent = () => {
     const {movies, maxPage, status, error} = useAppSelector(({genreMoviesSlice}) => genreMoviesSlice);
     const dispatch = useAppDispatch();
     useEffect(() => {
-        const genreId: number = +id;
+        const genreId: number = Number(id);
         if (id){
             dispatch(genreMoviesSliceAction.loadGenreMovies({page, id: genreId}))
         }

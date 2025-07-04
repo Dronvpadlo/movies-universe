@@ -42,3 +42,14 @@
     padding-left: 2vw;
     padding-top: 5vh;
 }
+
+.button{
+    border-radius: 25px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    height: 5vh;
+}
+
+.button:hover{
+    background-color: #ea4a4a;
+}

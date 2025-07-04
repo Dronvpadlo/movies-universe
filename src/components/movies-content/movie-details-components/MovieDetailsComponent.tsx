@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import PosterPreview from "../poster-components/PosterPreview.tsx";
 import ProductionCompanyComponent from "./ProductionCompanyComponent.tsx";
 import ProductionCountriesComponent from "./ProductionCountriesComponent.tsx";
@@ -14,7 +14,8 @@ import {SpinnerComponent} from "../../others/SpinnerComponent.tsx";
 
 const MovieDetailsComponent = () => {
     const {movie, status, error} = useAppSelector(({movieDetailsSlice}) => movieDetailsSlice);
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const { id } = useParams();
     const dispatch = useAppDispatch();
 
@@ -38,10 +39,19 @@ const MovieDetailsComponent = () => {
         ? basePosterUrl + backDropSize + movie.backdrop_path
         : null;
 
+    const handleGoBack = () => {
+        if(location.state?.from) {
+            navigate(location.state.from)
+        } else {
+            navigate('/movies')
+        }
+    }
+
     return (
         <div className={styles.section}>
             {movie && (
                 <div>
+                    <button onClick={handleGoBack}>← Back</button>
                     <div>{fullBackdropPath && (
                         <div
                             className={styles.backdrop}
@@ -55,18 +65,17 @@ const MovieDetailsComponent = () => {
                                 </h2>
 
                                 <PosterPreview movie={movie} posterSize={posterSize}/>
-                                <div >
+                                <div>
                                     Rating: <StarsRatingComponent rating={movie.vote_average}/>
                                 </div>
 
 
-
-
                             </div>
                             <div className={styles.info}>
-                                {movie.genres.map((genre, index) => <GenreBadgeComponent key={index} name={genre.name}/>)}
+                                {movie.genres.map((genre, index) => <GenreBadgeComponent key={index}
+                                                                                         name={genre.name}/>)}
                                 <div>Budget: {movie.budget}$</div>
-                                    {movie.homepage && <a href={movie.homepage}>Homepage</a>}
+                                {movie.homepage && <a href={movie.homepage}>Homepage</a>}
 
                                 <ul>
                                     Original Countries:{' '}

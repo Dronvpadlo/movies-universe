@@ -20,9 +20,10 @@ const HomeComponent = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name.trim().length < 2) return;
+        if (!name.trim()) return;
         dispatch(userSliceAction.setUser(name.trim()));
         navigate('/movies')
+        console.log('click')
     }
 
 

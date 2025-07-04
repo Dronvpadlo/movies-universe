@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
 import PosterPreview from "../poster-components/PosterPreview.tsx";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import styles from './MoviesListCardComponent.module.css'
 import MovieInfoComponent from "./MovieInfoComponent.tsx";
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
@@ -14,11 +14,12 @@ const MoviesListCardComponent:FC<MoviePropType> = ({movie}) => {
 
     const {genres} = useAppSelector(state => state.genresSlice);
     const navigate = useNavigate();
+    const location = useLocation();
     const genreNames = genres
         .filter(genre => movie.genre_ids.includes(genre.id))
         .map(genre => genre.name);
     const goToMovie = () => {
-        navigate(`/movies/details/${movie.id}`)
+        navigate(`/movies/details/${movie.id}`, {state: {from: location}})
     }
 
     const posterSize: string = '/w300';
