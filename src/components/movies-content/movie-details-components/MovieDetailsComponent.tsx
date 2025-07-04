@@ -51,7 +51,7 @@ const MovieDetailsComponent = () => {
         <div className={styles.section}>
             {movie && (
                 <div>
-                    <button onClick={handleGoBack}>← Back</button>
+                    <button onClick={handleGoBack} className={styles.button}>← Back</button>
                     <div>{fullBackdropPath && (
                         <div
                             className={styles.backdrop}
