@@ -7,10 +7,17 @@ import React from "react";
 import MoviesSearchPage from "../pages/MoviesSearchPage.tsx";
 import HomePage from "../pages/HomePage.tsx";
 import GenreMoviesPage from "../pages/GenreMoviesPage.tsx";
+import AuthLayout from "../layouts/AuthLayout.tsx";
+import ProtectedRouteComponent from "../components/protected-routes/ProtectedRouteComponent.tsx";
 
-export const routes = createBrowserRouter([{
-    path: '/', element: <MainLayout/>, children: [
-        {path: '/', element: <HomePage/>},
+export const routes = createBrowserRouter([
+    {
+        path: '/auth', element: <AuthLayout/>, children: [{
+            index: true, element: <HomePage/>
+        }],
+    },
+    {
+    path: '/', element: <ProtectedRouteComponent><MainLayout/></ProtectedRouteComponent>, children: [
         {path: '/movies', element: <MoviesPage/>},
         {path: '/movies/details/:id', element: <MovieDetailsPage/>},
         {path: '/genres', element: <GenresPage/>},

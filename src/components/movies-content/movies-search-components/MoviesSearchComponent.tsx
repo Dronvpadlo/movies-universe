@@ -6,11 +6,12 @@ import styles from './MoviesSearchComponent.module.css'
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
 import {searchSliceAction} from "../../../redux/slices/searchSlice/searchSlice.ts";
 import {useAppDispatch} from "../../../redux/hooks/UseAppDispatch.tsx";
+import {SpinnerComponent} from "../../others/SpinnerComponent.tsx";
 
 const MoviesSearchComponent = () => {
 
     const [params] = useSearchParams({page: '1'});
-    const {movies, maxPage} = useAppSelector(({searchSlice}) => searchSlice)
+    const {movies, maxPage, status, error} = useAppSelector(({searchSlice}) => searchSlice)
     const query = params.get('query') || '';
     const dispatch = useAppDispatch();
 
@@ -21,6 +22,14 @@ const MoviesSearchComponent = () => {
             dispatch(searchSliceAction.loadFoundMovies({query, page}))
         }
     }, [params]);
+
+    if (status === 'loading') {
+        return <SpinnerComponent/>;
+    }
+
+    if (status === 'failed') {
+        return <p>{error || 'Something went wrong'}</p>;
+    }
     return (
         <div className={styles.section}>
             <h2>Search results for: "{query}"</h2>

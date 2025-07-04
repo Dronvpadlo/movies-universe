@@ -1,0 +1,1 @@
+export type LoadStatusType = 'idle' | 'loading' | 'succeeded' | 'failed';

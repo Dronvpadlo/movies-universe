@@ -4,16 +4,17 @@ import PosterPreview from "../poster-components/PosterPreview.tsx";
 import ProductionCompanyComponent from "./ProductionCompanyComponent.tsx";
 import ProductionCountriesComponent from "./ProductionCountriesComponent.tsx";
 import StarsRatingComponent from "../StarsRatingComponent.tsx";
-import {Badge} from "reactstrap";
 import {basePosterUrl} from "../../../consts/urls.ts";
 import styles from './MovieDetailsComponent.module.css'
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
 import {useAppDispatch} from "../../../redux/hooks/UseAppDispatch.tsx";
 import {movieDetailsSliceAction} from "../../../redux/slices/movieDetailsSlice/movieDetailsSlice.ts";
+import GenreBadgeComponent from "../movies-components/GenreBadgeComponent.tsx";
+import {SpinnerComponent} from "../../others/SpinnerComponent.tsx";
 
 const MovieDetailsComponent = () => {
-    // const [movie, setMovie] = useState<IMovieDetails | null>(null);
-    const {movie} = useAppSelector(({movieDetailsSlice}) => movieDetailsSlice);
+    const {movie, status, error} = useAppSelector(({movieDetailsSlice}) => movieDetailsSlice);
+
     const { id } = useParams();
     const dispatch = useAppDispatch();
 
@@ -21,6 +22,14 @@ const MovieDetailsComponent = () => {
         const movieId: number = +id
         dispatch(movieDetailsSliceAction.loadMovieDetails({id: movieId}))
     }, [id]);
+
+    if (status === 'loading') {
+        return <SpinnerComponent/>;
+    }
+
+    if (status === 'failed') {
+        return <p>{error || 'Something went wrong'}</p>;
+    }
 
     const posterSize: string = '/w500';
     const backDropSize: string = '/w1280';
@@ -50,16 +59,13 @@ const MovieDetailsComponent = () => {
                                     Rating: <StarsRatingComponent rating={movie.vote_average}/>
                                 </div>
 
+
+
+
                             </div>
                             <div className={styles.info}>
+                                {movie.genres.map((genre, index) => <GenreBadgeComponent key={index} name={genre.name}/>)}
                                 <div>Budget: {movie.budget}$</div>
-
-                                <div>
-                                    Genres:{' '}
-                                    {movie.genres.map((genre, index) => (
-                                        <Badge key={index} name={genre} />
-                                    ))}
-                                </div>
                                     {movie.homepage && <a href={movie.homepage}>Homepage</a>}
 
                                 <ul>

@@ -1,14 +1,14 @@
-import React from 'react';
-import {Badge} from "reactstrap";
-
-type GenreProp = {
-    name: string;
+import React, {FC} from 'react';
+import styles from './GenreBadgeComponent.module.css'
+type BadgePropType = {
+    name: string
 }
-const GenreBadgeComponent = ({name}: GenreProp) => {
+
+const GenreBadgeComponent:FC<BadgePropType> = ({name}) => {
     return (
-        <Badge color="info" pill style={{ marginRight: '6px' }}>
+        <span className={styles.badge}>
             {name}
-        </Badge>
+        </span>
     );
 };
 

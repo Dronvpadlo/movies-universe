@@ -8,9 +8,8 @@
 }
 .links{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 1vw;
-    width: 30vw;
     padding-right: 2vw;
     align-items: center;
 }
@@ -20,7 +19,6 @@
     border-radius: 35px;
     background-color: var(--card-bg);
     color: var(--text-color);
-    background-image: url(https://static.thenounproject.com/png/1841400-200.png);
     background-size: cover;
     background-position: center;
 }
@@ -77,3 +75,39 @@
     color: var(--text-color);
 }
 
+.userBlock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /*border: solid var(--text-color);*/
+    /*border-radius: 25px;*/
+    height: 6vh;
+    margin-right: 2vw;
+
+}
+
+.userName {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 22px;
+}
+
+.logoutBtn {
+    font-weight: bold;
+    color: #6173ec;
+    border: none;
+    cursor: pointer;
+    border-radius: 35px;
+    height: 6vh;
+    background-color: var(--card-bg);
+    font-size: 22px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.logoutBtn:hover {
+
+    color: #ea4a4a;
+
+}

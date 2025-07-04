@@ -5,6 +5,7 @@ import {getGenres} from "../../../services/MoviesService.ts";
 
 type GenresSliceType = {
     genres: IGenre[]
+
 }
 
 const initialState: GenresSliceType = {genres: []};
