@@ -4,7 +4,7 @@ type Theme = 'light' | 'dark'
 
 type ContextThemeType = {
     theme: Theme;
-    changeTheme: (theme: string) => void
+    changeTheme: (theme: Theme) => void
 }
 
 const defaultValue:ContextThemeType = {
@@ -13,6 +13,8 @@ const defaultValue:ContextThemeType = {
         console.log(theme)
     }
 }
+export const ThemeContext = createContext<ContextThemeType>(defaultValue);
+
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setTheme] = useState<Theme>(() => {
@@ -36,4 +38,3 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export const ThemeContext = createContext<ContextThemeType>(defaultValue);

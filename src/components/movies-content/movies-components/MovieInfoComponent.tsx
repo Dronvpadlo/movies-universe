@@ -16,9 +16,7 @@ const MovieInfoComponent:FC<MoviePropType> = ({movie}) => {
             <div>Release Date: {movie?.release_date}</div>
             <div>Rating: <StarsRatingComponent rating={movie.vote_average}/></div>
             <div>Votes: {movie?.vote_count}</div>
-            <div>Adult: {movie?.adult === true && <span>18+ 🔞</span>}
-                {movie?.adult === false && <span>All Ages</span>}
-            </div>
+            <div>Adult: {movie.adult ? '18+ 🔞' : 'All Ages'}</div>
         </div>
     );
 };
