@@ -45,7 +45,7 @@ const MoviesSearchComponent = () => {
 
                 </div>
             ) : (
-                <p>No results found.</p>
+                <div className={styles.notFoundBlock}>No results found.</div>
             )}
         </div>
     );
