@@ -14,17 +14,12 @@ const MoviesListComponent = () => {
     const [query] = useSearchParams({page: '1'});
     const {movies, maxPage, status, error} = useAppSelector(({moviesSlice}) => moviesSlice);
 
-
     const dispatch = useAppDispatch();
 
-
     useEffect(() => {
-        const page = +query.get('page');
-        if (query) {
-            dispatch(moviesSliceAction.loadMovies(page));
-
-        }
-    }, [query]);
+        const page = +query.get('page') || 1;
+        dispatch(moviesSliceAction.loadMovies(page));
+    }, [query, dispatch]);
 
     if (status === 'loading') {
         return <SpinnerComponent/>;

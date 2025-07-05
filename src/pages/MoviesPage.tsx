@@ -1,5 +1,5 @@
 import React from 'react';
-import MoviesListComponent from "../components/movies-content/movies-components/MoviesListComponent.tsx";
+import MoviesListComponent from "../components/movies-content/movies-list-components/MoviesListComponent.tsx";
 
 
 const MoviesPage = () => {

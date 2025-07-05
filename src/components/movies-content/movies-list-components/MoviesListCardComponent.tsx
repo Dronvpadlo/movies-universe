@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
-import PosterPreview from "../poster-components/PosterPreview.tsx";
+import PosterPreview from "./poster/PosterPreview.tsx";
 import {useLocation, useNavigate} from "react-router-dom";
 import styles from './MoviesListCardComponent.module.css'
 import MovieInfoComponent from "./MovieInfoComponent.tsx";
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
-import GenreBadgeComponent from "./GenreBadgeComponent.tsx";
+import GenreBadgeComponent from "./badge/GenreBadgeComponent.tsx";
 
 type MoviePropType = {
     movie: IMovieListCard

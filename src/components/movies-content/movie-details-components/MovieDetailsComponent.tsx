@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-import PosterPreview from "../poster-components/PosterPreview.tsx";
+import PosterPreview from "../movies-list-components/poster/PosterPreview.tsx";
 import ProductionCompanyComponent from "./ProductionCompanyComponent.tsx";
 import ProductionCountriesComponent from "./ProductionCountriesComponent.tsx";
-import StarsRatingComponent from "../StarsRatingComponent.tsx";
+import StarsRatingComponent from "../movies-list-components/StarsRatingComponent.tsx";
 import {basePosterUrl} from "../../../consts/urls.ts";
 import styles from './MovieDetailsComponent.module.css'
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";
 import {useAppDispatch} from "../../../redux/hooks/UseAppDispatch.tsx";
 import {movieDetailsSliceAction} from "../../../redux/slices/movieDetailsSlice/movieDetailsSlice.ts";
-import GenreBadgeComponent from "../movies-components/GenreBadgeComponent.tsx";
+import GenreBadgeComponent from "../movies-list-components/badge/GenreBadgeComponent.tsx";
 import {SpinnerComponent} from "../../others/SpinnerComponent.tsx";
 
 const MovieDetailsComponent = () => {

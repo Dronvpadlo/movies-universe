@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSearchParams} from "react-router-dom";
-import MoviesListCardComponent from "../movies-components/MoviesListCardComponent.tsx";
+import MoviesListCardComponent from "../movies-list-components/MoviesListCardComponent.tsx";
 import PaginationComponent from "../../pagination/PaginationComponent.tsx";
 import styles from './MoviesSearchComponent.module.css'
 import {useAppSelector} from "../../../redux/hooks/UseAppSelector.ts";

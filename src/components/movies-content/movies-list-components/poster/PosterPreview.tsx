@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
-import {basePosterUrl} from "../../../consts/urls.ts";
-import type {IMovieDetails} from "../../../models/IMovieDetails.ts";
+import type {IMovieListCard} from "../../../../models/IMovieListCard.ts";
+import {basePosterUrl} from "../../../../consts/urls.ts";
+import type {IMovieDetails} from "../../../../models/IMovieDetails.ts";
 import styles from './PosterPreview.module.css'
 
 type PosterPropType = {

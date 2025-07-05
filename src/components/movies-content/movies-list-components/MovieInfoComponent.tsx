@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import type {IMovieListCard} from "../../../models/IMovieListCard.ts";
 import styles from "./MoviesListCardComponent.module.css";
-import StarsRatingComponent from "../StarsRatingComponent.tsx";
+import StarsRatingComponent from "./StarsRatingComponent.tsx";
 
 type MoviePropType = {
     movie: IMovieListCard
